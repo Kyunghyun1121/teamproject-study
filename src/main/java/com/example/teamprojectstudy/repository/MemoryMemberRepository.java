@@ -1,6 +1,6 @@
-package repository;
+package com.example.teamprojectstudy.repository;
 
-import domain.Member;
+import com.example.teamprojectstudy.domain.Member;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;
@@ -29,5 +29,8 @@ public class MemoryMemberRepository implements MemberRepository{
         //map으로 불러오는데 optional로 감싸주면 null일떄 서버에서 처리해 줄 수 있다.
     }
 
-
+    @Override
+    public List<Member> findAll() {
+        return new ArrayList<>(store.values());
+    }
 }

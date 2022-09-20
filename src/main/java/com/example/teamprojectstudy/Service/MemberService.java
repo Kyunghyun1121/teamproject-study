@@ -1,9 +1,9 @@
-package Service;
+package com.example.teamprojectstudy.Service;
 
-import domain.Member;
+import com.example.teamprojectstudy.domain.Member;
 import org.springframework.stereotype.Service;
-import repository.MemberRepository;
-import repository.MemoryMemberRepository;
+import com.example.teamprojectstudy.repository.MemberRepository;
+import com.example.teamprojectstudy.repository.MemoryMemberRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,6 +19,12 @@ public class MemberService {
         return member.getAge();
     }
 
+    /**
+     * 전체 회원 조회
+     */
+    public List<Member> findMembers() {
+        return memberRepository.findAll();
+    }
     //검색
     public Optional<Member> findName(String name) {
        return memberRepository.findByName(name);
